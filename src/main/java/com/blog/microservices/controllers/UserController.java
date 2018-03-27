@@ -36,8 +36,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public Mono<ResponseEntity<UserResponse>> getUser(@PathVariable String id) {
-        return service.getUserById(id)
-                .map(user ->  ResponseEntity.ok(userParser.toDTO(user)));
+        return service.getUserById(id).map( user -> ResponseEntity.ok(userParser.toDTO(user)) );
     }
 
     @PostMapping
